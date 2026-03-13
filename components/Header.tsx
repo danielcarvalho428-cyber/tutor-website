@@ -85,7 +85,7 @@ export default function Header() {
   const navItems: NavItem[] = [
     { label: "Início", href: "/" },
     { label: "Sobre", href: "/about" },
-    { label: "Serviços", href: "/subjects" },
+    
     { label: "Materiais", href: materialsHref },
     { label: "Agendamento", href: "/booking" },
     { label: "Contato", href: "/contact" },
