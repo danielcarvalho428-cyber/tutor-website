@@ -73,7 +73,7 @@ export default function Hero() {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-3 shadow-[0_25px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-slate-900">
                 <Image
-                  src="/professor-kaue.jpeg"
+                  src="/kaue.jpeg"
                   alt="Professor Kaue Ribeiro"
                   fill
                   className="object-cover"
