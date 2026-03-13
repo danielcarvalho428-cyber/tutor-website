@@ -523,92 +523,45 @@ export default async function MaterialsPage({
 
       <section className="px-4 py-10">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="rounded-[2rem] border border-slate-200 bg-gradient-to-r from-blue-950 via-slate-900 to-blue-950 p-8 text-white shadow-[0_24px_70px_rgba(15,23,42,0.16)] md:p-10">
-              <span className="inline-flex items-center rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-amber-300">
-                Fluxo da plataforma
-              </span>
-
-              <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
-                Uma biblioteca pronta para crescer
-              </h2>
-
-              <div className="mt-8 grid gap-5 md:grid-cols-3">
-                {[
-                  {
-                    step: "01",
-                    title: "Login",
-                    text: "O aluno entra com sua conta e acessa uma área protegida da plataforma.",
-                  },
-                  {
-                    step: "02",
-                    title: "Banco de dados",
-                    text: "Os materiais agora vêm de uma tabela real no Supabase.",
-                  },
-                  {
-                    step: "03",
-                    title: "Filtros",
-                    text: "A navegação por matéria, nível e tipo deixa a biblioteca muito mais útil.",
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.step}
-                    className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm"
-                  >
-                    <span className="text-xs font-bold tracking-[0.3em] text-amber-300">
-                      {item.step}
-                    </span>
-                    <h3 className="mt-3 text-lg font-semibold text-white">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-200">
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
+          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
+              <BookOpen className="h-6 w-6" />
             </div>
 
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-10">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
-                <BookOpen className="h-6 w-6" />
-              </div>
+            <h3 className="mt-5 text-2xl font-bold tracking-tight text-slate-900">
+              Próximos upgrades
+            </h3>
 
-              <h3 className="mt-5 text-2xl font-bold tracking-tight text-slate-900">
-                Próximos upgrades
-              </h3>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+              O próximo passo natural é expandir ainda mais essa biblioteca com
+              uploads reais e segmentação por aluno.
+            </p>
 
-              <p className="mt-4 text-sm leading-7 text-slate-600">
-                O próximo passo natural é expandir ainda mais essa biblioteca com
-                uploads reais e segmentação por aluno.
-              </p>
-
-              <div className="mt-8 space-y-3">
-                {[
-                  "Uploads reais de PDF e vídeo",
-                  "Filtros ainda mais refinados",
-                  "Materiais separados por aluno",
-                  "Histórico de conteúdos liberados",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center justify-between rounded-2xl border border-slate-200 px-5 py-4 text-sm font-semibold text-slate-800"
-                  >
-                    <span>{item}</span>
-                    <Lock className="h-4 w-4 text-amber-600" />
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8">
-                <Link
-                  href="/booking"
-                  className="inline-flex items-center gap-2 rounded-2xl bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800"
+            <div className="mt-8 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+              {[
+                "Uploads reais de PDF e vídeo",
+                "Filtros ainda mais refinados",
+                "Materiais separados por aluno",
+                "Histórico de conteúdos liberados",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center justify-between rounded-2xl border border-slate-200 px-5 py-4 text-sm font-semibold text-slate-800"
                 >
-                  Ir para agendamento
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
+                  <span>{item}</span>
+                  <Lock className="h-4 w-4 text-amber-600" />
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <Link
+                href="/booking"
+                className="inline-flex items-center gap-2 rounded-2xl bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                Ir para agendamento
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
