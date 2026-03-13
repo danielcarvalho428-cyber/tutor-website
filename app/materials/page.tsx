@@ -5,12 +5,10 @@ import {
   BookOpen,
   Calculator,
   Download,
-  Eye,
-  FileText,
   Lock,
   LogOut,
   PlayCircle,
-  Sparkles,
+  FileText,
   X,
 } from "lucide-react";
 
@@ -245,68 +243,6 @@ export default async function MaterialsPage({
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="grid gap-4 px-6 py-6 sm:grid-cols-2 xl:grid-cols-4">
-              <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
-                    <BookOpen className="h-5 w-5" />
-                  </div>
-                  <p className="text-sm font-medium text-slate-500">Biblioteca</p>
-                </div>
-                <p className="mt-4 text-lg font-semibold text-slate-900">
-                  Materiais reais
-                </p>
-                <p className="mt-2 text-sm text-slate-500">
-                  Conteúdos publicados e conectados ao banco de dados.
-                </p>
-              </div>
-
-              <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
-                    <Calculator className="h-5 w-5" />
-                  </div>
-                  <p className="text-sm font-medium text-slate-500">Disciplinas</p>
-                </div>
-                <p className="mt-4 text-lg font-semibold text-slate-900">
-                  Matemática e Física
-                </p>
-                <p className="mt-2 text-sm text-slate-500">
-                  Biblioteca preparada para diferentes fases da jornada escolar.
-                </p>
-              </div>
-
-              <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-100 text-violet-700">
-                    <Sparkles className="h-5 w-5" />
-                  </div>
-                  <p className="text-sm font-medium text-slate-500">Navegação</p>
-                </div>
-                <p className="mt-4 text-lg font-semibold text-slate-900">
-                  Filtros ativos
-                </p>
-                <p className="mt-2 text-sm text-slate-500">
-                  Matéria, nível e tipo para encontrar o que importa mais rápido.
-                </p>
-              </div>
-
-              <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
-                    <Eye className="h-5 w-5" />
-                  </div>
-                  <p className="text-sm font-medium text-slate-500">Acesso</p>
-                </div>
-                <p className="mt-4 text-lg font-semibold text-slate-900">
-                  Área do aluno
-                </p>
-                <p className="mt-2 text-sm text-slate-500">
-                  Conteúdos organizados em uma experiência mais clara e premium.
-                </p>
               </div>
             </div>
           </div>
