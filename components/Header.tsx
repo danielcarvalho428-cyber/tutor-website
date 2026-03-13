@@ -85,7 +85,6 @@ export default function Header() {
   const navItems: NavItem[] = [
     { label: "Início", href: "/" },
     { label: "Sobre", href: "/about" },
-    
     { label: "Materiais", href: materialsHref },
     { label: "Agendamento", href: "/booking" },
     { label: "Contato", href: "/contact" },
@@ -94,10 +93,10 @@ export default function Header() {
   const showAdminLink = role === "admin";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10 lg:px-12">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="relative h-11 w-11 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <Link href="/" className="flex min-w-0 items-center gap-3">
+          <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             <Image
               src="/logo-kaue.png"
               alt="Professor Kaue Ribeiro"
@@ -112,7 +111,7 @@ export default function Header() {
             <p className="truncate text-base font-bold tracking-tight text-slate-950">
               Professor Kaue Ribeiro
             </p>
-            <p className="truncate text-xs font-medium uppercase tracking-[0.22em] text-yellow-700">
+            <p className="truncate text-[11px] font-semibold uppercase tracking-[0.24em] text-amber-700">
               Matemática e Física
             </p>
           </div>
@@ -142,8 +141,8 @@ export default function Header() {
               href="/admin"
               className={`ml-1 rounded-full px-4 py-2 text-sm font-semibold transition ${
                 isActive(pathname, "/admin")
-                  ? "bg-yellow-400 text-slate-950"
-                  : "bg-yellow-400/15 text-yellow-800 hover:bg-yellow-400/25"
+                  ? "bg-amber-400 text-slate-950"
+                  : "bg-amber-50 text-amber-800 hover:bg-amber-100"
               }`}
             >
               Admin
@@ -157,7 +156,11 @@ export default function Header() {
               href={dashboardHref}
               className="inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
-              {role === "admin" ? "Painel admin" : "Dashboard"}
+              {loadingRole
+                ? "Carregando..."
+                : role === "admin"
+                ? "Painel admin"
+                : "Dashboard"}
             </Link>
           ) : (
             <Link
@@ -181,7 +184,7 @@ export default function Header() {
       </div>
 
       {mobileOpen ? (
-        <div className="border-t border-slate-200 bg-white lg:hidden">
+        <div className="border-t border-slate-200 bg-white/95 backdrop-blur-xl lg:hidden">
           <div className="mx-auto max-w-7xl px-6 py-4 md:px-10 lg:px-12">
             <div className="grid gap-2">
               {navItems.map((item) => {
@@ -194,7 +197,7 @@ export default function Header() {
                     className={`flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition ${
                       active
                         ? "bg-slate-950 text-white"
-                        : "border border-slate-200 text-slate-700 hover:bg-slate-50"
+                        : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
                     }`}
                   >
                     <span>{item.label}</span>
@@ -208,8 +211,8 @@ export default function Header() {
                   href="/admin"
                   className={`flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition ${
                     isActive(pathname, "/admin")
-                      ? "bg-yellow-400 text-slate-950"
-                      : "border border-yellow-200 bg-yellow-50 text-yellow-800 hover:bg-yellow-100"
+                      ? "bg-amber-400 text-slate-950"
+                      : "border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100"
                   }`}
                 >
                   <span>Admin</span>

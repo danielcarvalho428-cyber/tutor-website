@@ -11,15 +11,21 @@ export default function SectionTitle({
 }: SectionTitleProps) {
   return (
     <div className={centered ? "text-center" : ""}>
-      <div
-        className={`mb-4 h-1.5 w-16 rounded-full bg-[#E5B325] ${
+      <span
+        className={`inline-flex rounded-full border border-amber-200 bg-amber-50 px-4 py-1 text-sm font-medium text-amber-700 ${
           centered ? "mx-auto" : ""
         }`}
-      />
-      <h2 className="text-3xl font-bold text-[#183A7A] md:text-4xl">{title}</h2>
+      >
+        Destaque
+      </span>
+
+      <h2 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        {title}
+      </h2>
+
       <p
-        className={`mt-4 leading-8 text-[#42526e] ${
-          centered ? "mx-auto max-w-2xl" : "max-w-2xl"
+        className={`mt-5 text-lg leading-8 text-slate-600 ${
+          centered ? "mx-auto max-w-3xl" : "max-w-3xl"
         }`}
       >
         {subtitle}

@@ -1,16 +1,19 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import {
+  ArrowRight,
+  BookOpen,
+  Calculator,
   Download,
+  Eye,
   FileText,
   Lock,
-  PlayCircle,
-  Calculator,
-  BookOpen,
-  ArrowRight,
   LogOut,
+  PlayCircle,
+  Sparkles,
   X,
 } from "lucide-react";
+
 import { createClient } from "@/lib/supabase/server";
 
 const materialCategories = [
@@ -111,7 +114,7 @@ function FilterChip({
       className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
         active
           ? "bg-slate-950 text-white"
-          : "border border-slate-200 bg-white text-slate-700 hover:border-yellow-500 hover:bg-yellow-50"
+          : "border border-slate-200 bg-white text-slate-700 hover:border-amber-300 hover:bg-amber-50"
       }`}
     >
       {label}
@@ -169,128 +172,206 @@ export default async function MaterialsPage({
     currentFilters.type !== "Todos";
 
   return (
-    <main className="bg-white text-slate-900">
-      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-slate-950 via-[#0f2342] to-slate-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.16),transparent_35%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+    <main className="min-h-screen bg-white text-slate-800">
+      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-slate-50 via-white to-white px-4 py-10 sm:py-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(30,64,175,0.08),_transparent_42%)]" />
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-amber-50/70 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-blue-50/70 to-transparent" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12 lg:py-24">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-            <div>
-              <span className="inline-flex rounded-full border border-yellow-400/30 bg-yellow-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-yellow-300">
-                Biblioteca do aluno
-              </span>
+        <div className="relative mx-auto max-w-7xl">
+          <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+            <div className="border-b border-slate-200 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-900 px-8 py-10 text-white">
+              <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+                <div className="max-w-3xl">
+                  <span className="inline-flex items-center rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-amber-300">
+                    Biblioteca do aluno
+                  </span>
 
-              <h1 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-                Materiais liberados para {displayName}.
-              </h1>
+                  <h1 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">
+                    Materiais liberados para {displayName}
+                  </h1>
 
-              <p className="mt-6 max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
-                Um espaço pensado para reunir conteúdos de Matemática e Física,
-                com materiais organizados para reforço, revisão e evolução contínua.
-              </p>
+                  <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-200 sm:text-base">
+                    Um espaço organizado para reunir conteúdos de Matemática e
+                    Física, com materiais pensados para reforço, revisão e
+                    evolução contínua.
+                  </p>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/dashboard"
-                  className="inline-flex items-center justify-center rounded-full bg-yellow-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-yellow-300"
-                >
-                  Voltar ao dashboard
-                </Link>
+                  <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                    <Link
+                      href="/dashboard"
+                      className="inline-flex items-center justify-center rounded-2xl bg-amber-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
+                    >
+                      Voltar ao dashboard
+                    </Link>
 
-                <form action="/auth/signout" method="post">
-                  <button
-                    type="submit"
-                    className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
-                  >
-                    <LogOut className="mr-2 h-4 w-4" />
-                    Sair
-                  </button>
-                </form>
+                    <form action="/auth/signout" method="post">
+                      <button
+                        type="submit"
+                        className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/15"
+                      >
+                        <LogOut className="mr-2 h-4 w-4" />
+                        Sair
+                      </button>
+                    </form>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
+                      Aluno
+                    </p>
+                    <p className="mt-2 text-lg font-semibold text-white">
+                      {displayName}
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
+                      Materiais encontrados
+                    </p>
+                    <p className="mt-2 text-lg font-semibold text-white">
+                      {materials?.length ?? 0}
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm sm:col-span-2">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
+                      Acesso
+                    </p>
+                    <p className="mt-2 text-lg font-semibold text-white">
+                      Área protegida por login
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 text-white shadow-[0_25px_70px_rgba(0,0,0,0.20)] backdrop-blur md:p-8">
-              <div className="space-y-4">
-                {[
-                  `Aluno: ${displayName}`,
-                  `E-mail: ${user.email}`,
-                  `Materiais encontrados: ${materials?.length ?? 0}`,
-                  "Acesso protegido por login",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200"
-                  >
-                    {item}
+            <div className="grid gap-4 px-6 py-6 sm:grid-cols-2 xl:grid-cols-4">
+              <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
+                    <BookOpen className="h-5 w-5" />
                   </div>
-                ))}
+                  <p className="text-sm font-medium text-slate-500">Biblioteca</p>
+                </div>
+                <p className="mt-4 text-lg font-semibold text-slate-900">
+                  Materiais reais
+                </p>
+                <p className="mt-2 text-sm text-slate-500">
+                  Conteúdos publicados e conectados ao banco de dados.
+                </p>
               </div>
 
-              <p className="mt-6 text-sm leading-7 text-slate-300">
-                Esta biblioteca agora lê dados reais do banco e já está pronta
-                para crescer com filtros e uploads.
-              </p>
+              <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
+                    <Calculator className="h-5 w-5" />
+                  </div>
+                  <p className="text-sm font-medium text-slate-500">Disciplinas</p>
+                </div>
+                <p className="mt-4 text-lg font-semibold text-slate-900">
+                  Matemática e Física
+                </p>
+                <p className="mt-2 text-sm text-slate-500">
+                  Biblioteca preparada para diferentes fases da jornada escolar.
+                </p>
+              </div>
+
+              <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-100 text-violet-700">
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+                  <p className="text-sm font-medium text-slate-500">Navegação</p>
+                </div>
+                <p className="mt-4 text-lg font-semibold text-slate-900">
+                  Filtros ativos
+                </p>
+                <p className="mt-2 text-sm text-slate-500">
+                  Matéria, nível e tipo para encontrar o que importa mais rápido.
+                </p>
+              </div>
+
+              <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
+                    <Eye className="h-5 w-5" />
+                  </div>
+                  <p className="text-sm font-medium text-slate-500">Acesso</p>
+                </div>
+                <p className="mt-4 text-lg font-semibold text-slate-900">
+                  Área do aluno
+                </p>
+                <p className="mt-2 text-sm text-slate-500">
+                  Conteúdos organizados em uma experiência mais clara e premium.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-12">
-        <div className="grid gap-6 lg:grid-cols-3">
-          {materialCategories.map((category) => {
-            const Icon = category.icon;
+      <section className="px-4 py-10">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-6 lg:grid-cols-3">
+            {materialCategories.map((category) => {
+              const Icon = category.icon;
 
-            return (
-              <div
-                key={category.title}
-                className="group rounded-3xl border border-slate-200 bg-white p-7 shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(15,23,42,0.10)]"
-              >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-950 text-yellow-400">
-                  <Icon className="h-6 w-6" />
+              return (
+                <div
+                  key={category.title}
+                  className="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-950 text-amber-400">
+                    <Icon className="h-6 w-6" />
+                  </div>
+
+                  <h2 className="mt-5 text-xl font-bold tracking-tight text-slate-900">
+                    {category.title}
+                  </h2>
+
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    {category.description}
+                  </p>
+
+                  <ul className="mt-5 space-y-3">
+                    {category.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 text-sm text-slate-700"
+                      >
+                        <span className="mt-2 h-2 w-2 rounded-full bg-amber-500" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                <h2 className="mt-5 text-xl font-semibold text-slate-950">
-                  {category.title}
-                </h2>
-
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  {category.description}
-                </p>
-
-                <ul className="mt-5 space-y-3">
-                  {category.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-3 text-sm text-slate-700"
-                    >
-                      <span className="mt-2 h-2 w-2 rounded-full bg-yellow-500" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-12">
+      <section className="border-y border-slate-200 bg-slate-50 px-4 py-10 sm:py-12">
+        <div className="mx-auto max-w-7xl">
           <div className="max-w-2xl">
-            <span className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-700">
+            <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-sm font-medium text-blue-700">
               Conteúdos liberados
             </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
+
+            <h2 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Sua área de materiais
             </h2>
-            <p className="mt-4 text-base leading-7 text-slate-600">
-              Agora esta biblioteca está conectada ao banco de dados do projeto
-              e filtrável por matéria, nível e tipo.
+
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Biblioteca conectada ao banco de dados do projeto e filtrável por
+              matéria, nível e tipo.
             </p>
           </div>
 
-          <div className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <div className="flex flex-col gap-6">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -344,7 +425,7 @@ export default async function MaterialsPage({
                 <div className="pt-2">
                   <Link
                     href="/materials"
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-yellow-500 hover:bg-yellow-50"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-amber-300 hover:bg-amber-50"
                   >
                     Limpar filtros
                     <X className="h-4 w-4" />
@@ -362,11 +443,12 @@ export default async function MaterialsPage({
 
           {!error && (!materials || materials.length === 0) ? (
             <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-950">
+              <h3 className="text-xl font-semibold text-slate-900">
                 Nenhum material encontrado
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-600">
-                Ajuste os filtros ou cadastre mais conteúdos no Supabase.
+                Ajuste os filtros ou publique mais conteúdos no painel
+                administrativo.
               </p>
             </div>
           ) : null}
@@ -375,7 +457,7 @@ export default async function MaterialsPage({
             {materials?.map((item: Material) => (
               <div
                 key={item.id}
-                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -386,17 +468,17 @@ export default async function MaterialsPage({
                       <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-800">
                         {item.subject}
                       </span>
-                      <span className="rounded-full bg-yellow-100 px-3 py-1 text-xs font-semibold text-yellow-800">
+                      <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
                         {item.level}
                       </span>
                     </div>
 
-                    <h3 className="mt-4 text-lg font-semibold text-slate-950">
+                    <h3 className="mt-4 text-lg font-semibold tracking-tight text-slate-900">
                       {item.title}
                     </h3>
                   </div>
 
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-yellow-400">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-amber-400">
                     {item.type.toLowerCase() === "vídeo" ||
                     item.type.toLowerCase() === "video" ? (
                       <PlayCircle className="h-5 w-5" />
@@ -410,13 +492,18 @@ export default async function MaterialsPage({
                   {item.description || "Sem descrição cadastrada."}
                 </p>
 
+                <p className="mt-4 text-sm text-slate-500">
+                  Publicado em{" "}
+                  {new Date(item.created_at).toLocaleDateString("pt-BR")}
+                </p>
+
                 <div className="mt-6">
                   {item.file_url ? (
                     <a
                       href={item.file_url}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-slate-950 transition hover:text-yellow-700"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-amber-700"
                     >
                       Abrir material
                       <ArrowRight className="h-4 w-4" />
@@ -434,89 +521,94 @@ export default async function MaterialsPage({
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-12">
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="rounded-[2rem] bg-slate-950 p-8 text-white shadow-[0_25px_70px_rgba(15,23,42,0.18)] md:p-10">
-            <span className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-300">
-              Fluxo da plataforma
-            </span>
+      <section className="px-4 py-10">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <div className="rounded-[2rem] border border-slate-200 bg-gradient-to-r from-blue-950 via-slate-900 to-blue-950 p-8 text-white shadow-[0_24px_70px_rgba(15,23,42,0.16)] md:p-10">
+              <span className="inline-flex items-center rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-amber-300">
+                Fluxo da plataforma
+              </span>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
-              Uma biblioteca pronta para crescer.
-            </h2>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
+                Uma biblioteca pronta para crescer
+              </h2>
 
-            <div className="mt-8 grid gap-5 md:grid-cols-3">
-              {[
-                {
-                  step: "01",
-                  title: "Login",
-                  text: "O aluno entra com sua conta e acessa uma área protegida da plataforma.",
-                },
-                {
-                  step: "02",
-                  title: "Banco de dados",
-                  text: "Os materiais agora vêm de uma tabela real no Supabase.",
-                },
-                {
-                  step: "03",
-                  title: "Filtros",
-                  text: "A navegação por matéria, nível e tipo deixa a biblioteca muito mais útil.",
-                },
-              ].map((item) => (
-                <div
-                  key={item.step}
-                  className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur"
+              <div className="mt-8 grid gap-5 md:grid-cols-3">
+                {[
+                  {
+                    step: "01",
+                    title: "Login",
+                    text: "O aluno entra com sua conta e acessa uma área protegida da plataforma.",
+                  },
+                  {
+                    step: "02",
+                    title: "Banco de dados",
+                    text: "Os materiais agora vêm de uma tabela real no Supabase.",
+                  },
+                  {
+                    step: "03",
+                    title: "Filtros",
+                    text: "A navegação por matéria, nível e tipo deixa a biblioteca muito mais útil.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.step}
+                    className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm"
+                  >
+                    <span className="text-xs font-bold tracking-[0.3em] text-amber-300">
+                      {item.step}
+                    </span>
+                    <h3 className="mt-3 text-lg font-semibold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-200">
+                      {item.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
+                <BookOpen className="h-6 w-6" />
+              </div>
+
+              <h3 className="mt-5 text-2xl font-bold tracking-tight text-slate-900">
+                Próximos upgrades
+              </h3>
+
+              <p className="mt-4 text-sm leading-7 text-slate-600">
+                O próximo passo natural é expandir ainda mais essa biblioteca com
+                uploads reais e segmentação por aluno.
+              </p>
+
+              <div className="mt-8 space-y-3">
+                {[
+                  "Uploads reais de PDF e vídeo",
+                  "Filtros ainda mais refinados",
+                  "Materiais separados por aluno",
+                  "Histórico de conteúdos liberados",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center justify-between rounded-2xl border border-slate-200 px-5 py-4 text-sm font-semibold text-slate-800"
+                  >
+                    <span>{item}</span>
+                    <Lock className="h-4 w-4 text-amber-600" />
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8">
+                <Link
+                  href="/booking"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800"
                 >
-                  <span className="text-xs font-bold tracking-[0.3em] text-yellow-300">
-                    {item.step}
-                  </span>
-                  <h3 className="mt-3 text-lg font-semibold">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">
-                    {item.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-10">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-400 text-slate-950">
-              <BookOpen className="h-6 w-6" />
-            </div>
-
-            <h3 className="mt-5 text-2xl font-bold text-slate-950">
-              Próximos upgrades
-            </h3>
-
-            <p className="mt-4 text-sm leading-7 text-slate-600">
-              O próximo passo natural é transformar esses registros em uploads reais e depois separar por aluno.
-            </p>
-
-            <div className="mt-8 space-y-3">
-              {[
-                "Uploads reais de PDF e vídeo",
-                "Filtros ainda mais refinados",
-                "Materiais separados por aluno",
-                "Histórico de conteúdos liberados",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center justify-between rounded-2xl border border-slate-200 px-5 py-4 text-sm font-semibold text-slate-800"
-                >
-                  <span>{item}</span>
-                  <Lock className="h-4 w-4 text-yellow-600" />
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8">
-              <Link
-                href="/booking"
-                className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-              >
-                Ir para agendamento
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+                  Ir para agendamento
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

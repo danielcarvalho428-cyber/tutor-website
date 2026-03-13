@@ -1,162 +1,291 @@
-import Container from "../../components/Container";
-import PageIntro from "../../components/PageIntro";
-import SectionTitle from "../../components/SectionTitle";
-import Card from "../../components/Card";
-import Button from "../../components/Button";
+import Link from "next/link";
+import {
+  GraduationCap,
+  BookOpen,
+  Calculator,
+  Atom,
+  MonitorSmartphone,
+  MapPin,
+  CheckCircle2,
+  ArrowRight,
+  MessageCircle,
+} from "lucide-react";
+
+import Container from "@/components/Container";
+import Button from "@/components/Button";
 
 export default function AboutPage() {
   return (
-    <main>
-      <PageIntro
-        title="Sobre"
-        description="Conheça um pouco mais sobre o acompanhamento em Matemática e Física oferecido pelo Professor Kaue Ribeiro."
-      />
+    <main className="bg-white text-slate-800">
+      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-slate-50 via-white to-white py-20 sm:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(30,64,175,0.08),_transparent_42%)]" />
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-amber-50/70 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-blue-50/70 to-transparent" />
 
-      <section className="py-20">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-            <div>
-              <SectionTitle
-                title="Um ensino com foco em clareza, confiança e evolução"
-                subtitle="Cada aula é pensada para ajudar o aluno a compreender melhor os conteúdos, ganhar segurança e construir uma rotina de estudos mais eficiente."
-              />
+          <div className="relative mx-auto max-w-4xl text-center">
+            <span className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-4 py-1 text-sm font-medium text-amber-700">
+              Sobre o professor
+            </span>
 
-              <div className="mt-8 rounded-[28px] border border-[#dbe6f5] bg-gradient-to-br from-white to-[#f7faff] p-8 shadow-[0_18px_45px_rgba(24,58,122,0.08)]">
-                <p className="text-lg leading-8 text-[#42526e]">
-                  O acompanhamento é voltado para alunos que desejam melhorar o
-                  entendimento em <span className="font-semibold text-[#183A7A]">Matemática</span> e{" "}
-                  <span className="font-semibold text-[#183A7A]">Física</span>,
-                  com uma abordagem mais próxima, organizada e adaptada às
-                  necessidades de cada etapa escolar.
+            <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+              Ensino com clareza, atenção individual e foco na evolução do aluno
+            </h1>
+
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+              Conheça a proposta do Professor Kaue Ribeiro e a forma como as
+              aulas são conduzidas para tornar Matemática e Física mais
+              compreensíveis, organizadas e acessíveis.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      <section className="relative overflow-hidden py-20 sm:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(30,64,175,0.08),_transparent_38%)]" />
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-amber-50/80 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-blue-50/80 to-transparent" />
+
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+            <div>
+              <span className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-4 py-1 text-sm font-medium text-amber-700">
+                Professor Kaue Ribeiro
+              </span>
+
+              <h2 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                Uma abordagem mais humana e estratégica para aprender melhor
+              </h2>
+
+              <div className="mt-6 space-y-5 text-lg leading-8 text-slate-600">
+                <p>
+                  O trabalho é voltado para alunos do{" "}
+                  <strong>6º ao 9º ano</strong>, <strong>Ensino Médio</strong> e{" "}
+                  <strong>cursinho</strong>, com foco em acompanhamento
+                  individual, reforço escolar e construção de uma base mais
+                  sólida em <strong>Matemática</strong> e <strong>Física</strong>.
                 </p>
 
-                <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                  <div className="rounded-2xl border border-[#e4ecf8] bg-white px-5 py-4">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#E5B325]">
-                      Matérias
-                    </p>
-                    <p className="mt-2 text-base font-semibold text-[#183A7A]">
-                      Matemática e Física
-                    </p>
-                  </div>
+                <p>
+                  Mais do que apenas explicar conteúdos, a proposta é ajudar o
+                  aluno a entender de forma clara, desenvolver autonomia nos
+                  estudos e enfrentar provas e exercícios com mais confiança.
+                </p>
 
-                  <div className="rounded-2xl border border-[#e4ecf8] bg-white px-5 py-4">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#E5B325]">
-                      Formato
-                    </p>
-                    <p className="mt-2 text-base font-semibold text-[#183A7A]">
-                      Online e presencial
-                    </p>
-                  </div>
+                <p>
+                  Cada aula é conduzida com atenção ao ritmo, às dúvidas e às
+                  necessidades reais de quem está aprendendo, sempre com uma
+                  comunicação objetiva e um acompanhamento próximo.
+                </p>
+              </div>
 
-                  <div className="rounded-2xl border border-[#e4ecf8] bg-white px-5 py-4">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#E5B325]">
-                      Objetivo
-                    </p>
-                    <p className="mt-2 text-base font-semibold text-[#183A7A]">
-                      Evolução real do aluno
-                    </p>
-                  </div>
-                </div>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button href="/booking">Agendar aula</Button>
+                <Button href="/contact" variant="secondary">
+                  Entrar em contato
+                </Button>
               </div>
             </div>
 
-            <div className="grid gap-6">
-              <Card>
-                <div className="mb-4 h-1.5 w-14 rounded-full bg-[#E5B325]" />
-                <h3 className="text-xl font-semibold text-[#183A7A]">
-                  Acompanhamento individual
-                </h3>
-                <p className="mt-3 leading-7 text-[#42526e]">
-                  O conteúdo é trabalhado de acordo com o ritmo, a série e as
-                  principais dificuldades de cada aluno.
-                </p>
-              </Card>
+            <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-[0_20px_60px_rgba(15,23,42,0.08)] sm:p-8">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
+                    <Calculator className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-base font-semibold text-slate-900">
+                    Matemática
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Explicações claras, reforço de base e prática orientada para
+                    melhorar desempenho e segurança.
+                  </p>
+                </div>
 
-              <Card>
-                <div className="mb-4 h-1.5 w-14 rounded-full bg-[#E5B325]" />
-                <h3 className="text-xl font-semibold text-[#183A7A]">
-                  Mais organização
-                </h3>
-                <p className="mt-3 leading-7 text-[#42526e]">
-                  Além das aulas, a proposta inclui estrutura para estudos,
-                  materiais de apoio e listas de exercícios.
-                </p>
-              </Card>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
+                    <Atom className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-base font-semibold text-slate-900">
+                    Física
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Conteúdo explicado com lógica, objetividade e foco em
+                    compreensão real dos conceitos.
+                  </p>
+                </div>
 
-              <Card>
-                <div className="mb-4 h-1.5 w-14 rounded-full bg-[#E5B325]" />
-                <h3 className="text-xl font-semibold text-[#183A7A]">
-                  Foco em resultado
-                </h3>
-                <p className="mt-3 leading-7 text-[#42526e]">
-                  O acompanhamento busca melhorar compreensão, desempenho em
-                  provas e confiança ao longo do processo.
-                </p>
-              </Card>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
+                    <MonitorSmartphone className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-base font-semibold text-slate-900">
+                    Online
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Aulas por Google Meet com praticidade, organização e atenção
+                    individual.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
+                    <MapPin className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-base font-semibold text-slate-900">
+                    Presencial
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Atendimento presencial em Goiânia/GO para quem prefere esse
+                    formato.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="bg-[linear-gradient(180deg,#f7faff_0%,#eef4ff_100%)] py-20">
+      <section className="bg-slate-50 py-20 sm:py-24">
         <Container>
-          <SectionTitle
-            title="Para quem as aulas são indicadas"
-            subtitle="Um formato flexível para atender diferentes fases escolares, sempre com atenção individual e foco em progresso consistente."
-          />
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-sm font-medium text-blue-700">
+              Como as aulas funcionam
+            </span>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <Card>
-              <div className="mb-4 h-1.5 w-14 rounded-full bg-[#E5B325]" />
-              <h3 className="text-2xl font-semibold text-[#183A7A]">
-                Público atendido
-              </h3>
+            <h2 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              Um processo pensado para trazer mais clareza e constância
+            </h2>
 
-              <div className="mt-6 space-y-4">
-                <div className="rounded-2xl border border-[#e4ecf8] bg-white px-5 py-4 text-[#42526e]">
-                  6º ao 9º ano (Ensino Fundamental II)
-                </div>
-                <div className="rounded-2xl border border-[#e4ecf8] bg-white px-5 py-4 text-[#42526e]">
-                  Ensino Médio
-                </div>
-                <div className="rounded-2xl border border-[#e4ecf8] bg-white px-5 py-4 text-[#42526e]">
-                  Cursinho e preparação para vestibular
-                </div>
-              </div>
-            </Card>
-
-            <Card>
-              <div className="mb-4 h-1.5 w-14 rounded-full bg-[#E5B325]" />
-              <h3 className="text-2xl font-semibold text-[#183A7A]">
-                Formato das aulas
-              </h3>
-
-              <div className="mt-6 space-y-4">
-                <div className="rounded-2xl border border-[#e4ecf8] bg-white px-5 py-4 text-[#42526e]">
-                  Aulas online pelo Google Meet
-                </div>
-                <div className="rounded-2xl border border-[#e4ecf8] bg-white px-5 py-4 text-[#42526e]">
-                  Aulas presenciais em Goiânia/GO
-                </div>
-                <div className="rounded-2xl border border-[#e4ecf8] bg-white px-5 py-4 text-[#42526e]">
-                  Suporte com listas, tarefas e preparação para provas
-                </div>
-              </div>
-            </Card>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              O objetivo é transformar dificuldades em progresso com uma
+              condução mais organizada, personalizada e eficiente.
+            </p>
           </div>
 
-          <div className="mt-12 rounded-[28px] border border-[#dbe6f5] bg-white px-6 py-10 text-center shadow-[0_18px_45px_rgba(24,58,122,0.06)]">
-            <p className="mx-auto max-w-2xl text-lg leading-8 text-[#42526e]">
-              Se você busca um acompanhamento mais próximo, organizado e focado
-              em evolução real, entre em contato para tirar dúvidas e entender o
-              formato ideal para o seu momento.
-            </p>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
+                <BookOpen className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-slate-900">
+                Diagnóstico das dificuldades
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Identificação dos pontos que precisam de mais atenção e reforço.
+              </p>
+            </div>
 
-            <div className="mt-8">
-              <Button href="https://wa.me/5562982273735">
-                Falar no WhatsApp
-              </Button>
+            <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
+                <GraduationCap className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-slate-900">
+                Explicação clara do conteúdo
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Linguagem objetiva, exemplos práticos e adaptação ao ritmo do
+                aluno.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
+                <Calculator className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-slate-900">
+                Exercícios orientados
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Fixação com acompanhamento, correção e desenvolvimento de
+                raciocínio.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
+                <CheckCircle2 className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-slate-900">
+                Evolução contínua
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Acompanhamento para consolidar aprendizado e aumentar a
+                confiança ao longo do tempo.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20 sm:py-24">
+        <Container>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+              <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">
+                Para quem as aulas são indicadas
+              </h2>
+
+              <div className="mt-6 space-y-4 text-slate-600">
+                <div className="flex gap-3">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
+                  <p>Alunos com dificuldades em Matemática ou Física.</p>
+                </div>
+                <div className="flex gap-3">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
+                  <p>
+                    Estudantes que precisam de reforço, revisão e melhor
+                    organização nos estudos.
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
+                  <p>
+                    Quem busca acompanhamento mais individual e direcionado.
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-blue-700" />
+                  <p>
+                    Alunos em preparação para provas escolares, recuperações e
+                    cursinho.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 p-8 text-white shadow-[0_20px_60px_rgba(15,23,42,0.18)]">
+              <span className="inline-flex items-center rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-amber-300">
+                Próximo passo
+              </span>
+
+              <h2 className="mt-5 text-2xl font-semibold sm:text-3xl">
+                Pronto para começar com mais confiança?
+              </h2>
+
+              <p className="mt-4 text-base leading-7 text-slate-200">
+                Entre em contato para tirar dúvidas ou siga direto para o
+                agendamento. A proposta é oferecer uma experiência simples,
+                profissional e acolhedora desde o primeiro contato.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row lg:flex-col">
+                <Link
+                  href="/booking"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
+                >
+                  Agendar aula
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/15"
+                >
+                  Entrar em contato
+                  <MessageCircle className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </Container>

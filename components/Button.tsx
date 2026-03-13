@@ -1,21 +1,30 @@
-import type { ReactNode } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import Link from "next/link";
 
 type ButtonProps = {
   children: ReactNode;
   href?: string;
   variant?: "primary" | "secondary";
+  className?: string;
+  type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
 };
 
 export default function Button({
   children,
   href,
   variant = "primary",
+  className = "",
+  type = "button",
 }: ButtonProps) {
-  const classes =
+  const baseClasses =
+    "inline-flex items-center justify-center rounded-2xl px-6 py-4 text-sm font-semibold transition";
+
+  const variantClasses =
     variant === "primary"
-      ? "inline-block rounded-xl bg-[#183A7A] px-6 py-3 text-base font-semibold text-white transition hover:bg-[#2454A6] shadow-sm"
-      : "inline-block rounded-xl border border-[#d4b24c] bg-white px-6 py-3 text-base font-semibold text-[#183A7A] transition hover:bg-[#fff9e8]";
+      ? "bg-slate-950 text-white hover:bg-slate-800"
+      : "border border-slate-300 bg-white text-slate-800 hover:bg-slate-50";
+
+  const classes = `${baseClasses} ${variantClasses} ${className}`.trim();
 
   if (href) {
     const isExternal = href.startsWith("http");
@@ -40,5 +49,9 @@ export default function Button({
     );
   }
 
-  return <button className={classes}>{children}</button>;
+  return (
+    <button type={type} className={classes}>
+      {children}
+    </button>
+  );
 }
