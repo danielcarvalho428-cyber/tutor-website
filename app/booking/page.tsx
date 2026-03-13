@@ -143,14 +143,7 @@ export default function BookingPage() {
               Matemática ou Física, no formato online ou presencial.
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/subjects"
-                className="inline-flex items-center justify-center rounded-full bg-yellow-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-yellow-300"
-              >
-                Ver serviços
-              </Link>
-
+            <div className="mt-8">
               <Link
                 href="/dashboard"
                 className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
