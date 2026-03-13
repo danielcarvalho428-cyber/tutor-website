@@ -1,4 +1,4 @@
-"// app/page.tsx
+
 import Hero from "@/components/Hero";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
