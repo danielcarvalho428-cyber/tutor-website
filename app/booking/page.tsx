@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import Link from "next/link";
 import {
   CalendarDays,
   Clock3,
@@ -552,14 +551,6 @@ Observações: ${form.message || "Nenhuma"}`;
                   Falar no WhatsApp
                   <MessageCircle className="h-4 w-4" />
                 </a>
-
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/15"
-                >
-                  Ver página de contato
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
             </div>
           </div>

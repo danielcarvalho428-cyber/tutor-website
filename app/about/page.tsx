@@ -79,10 +79,10 @@ export default function AboutPage() {
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
-                  href="/contact"
+                  href="/booking"
                   className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
                 >
-                  Entrar em contato
+                  Agendamento
                 </Link>
               </div>
             </div>
@@ -264,16 +264,16 @@ export default function AboutPage() {
               </h2>
 
               <p className="mt-4 text-base leading-7 text-slate-200">
-                Entre em contato para tirar dúvidas e entender qual formato pode
-                funcionar melhor para a rotina e os objetivos do aluno.
+                Siga para o agendamento e encontre o melhor formato para a rotina
+                e os objetivos do aluno.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row lg:flex-col">
                 <Link
-                  href="/contact"
+                  href="/booking"
                   className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
                 >
-                  Entrar em contato
+                  Agendamento
                   <MessageCircle className="h-4 w-4" />
                 </Link>
               </div>

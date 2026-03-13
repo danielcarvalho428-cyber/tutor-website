@@ -87,7 +87,6 @@ export default function Header() {
     { label: "Sobre", href: "/about" },
     { label: "Materiais", href: materialsHref },
     { label: "Agendamento", href: "/booking" },
-    { label: "Contato", href: "/contact" },
   ];
 
   const showAdminLink = role === "admin";

@@ -46,12 +46,6 @@ export default function Footer() {
                 >
                   Agendamento
                 </Link>
-                <Link
-                  href="/contact"
-                  className="transition hover:text-slate-950"
-                >
-                  Contato
-                </Link>
               </div>
             </div>
 

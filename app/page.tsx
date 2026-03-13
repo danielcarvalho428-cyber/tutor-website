@@ -204,10 +204,10 @@ export default function HomePage() {
 
               <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
                 <Link
-                  href="/contact"
+                  href="/booking"
                   className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
                 >
-                  Falar pelo WhatsApp
+                  Agendamento
                   <MessageCircle className="h-4 w-4" />
                 </Link>
 
