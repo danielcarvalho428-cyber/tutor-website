@@ -7,12 +7,10 @@ import {
   MonitorSmartphone,
   MapPin,
   CheckCircle2,
-  ArrowRight,
   MessageCircle,
 } from "lucide-react";
 
 import Container from "@/components/Container";
-import Button from "@/components/Button";
 
 export default function AboutPage() {
   return (
@@ -80,10 +78,12 @@ export default function AboutPage() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <Button href="/booking">Agendar aula</Button>
-                <Button href="/contact" variant="secondary">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
+                >
                   Entrar em contato
-                </Button>
+                </Link>
               </div>
             </div>
 
@@ -264,23 +264,14 @@ export default function AboutPage() {
               </h2>
 
               <p className="mt-4 text-base leading-7 text-slate-200">
-                Entre em contato para tirar dúvidas ou siga direto para o
-                agendamento. A proposta é oferecer uma experiência simples,
-                profissional e acolhedora desde o primeiro contato.
+                Entre em contato para tirar dúvidas e entender qual formato pode
+                funcionar melhor para a rotina e os objetivos do aluno.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row lg:flex-col">
                 <Link
-                  href="/booking"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
-                >
-                  Agendar aula
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-
-                <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/15"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
                 >
                   Entrar em contato
                   <MessageCircle className="h-4 w-4" />

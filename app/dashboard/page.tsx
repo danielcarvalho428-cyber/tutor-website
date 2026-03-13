@@ -3,10 +3,8 @@ import { redirect } from "next/navigation";
 import {
   ArrowRight,
   BookOpen,
-  CalendarDays,
   GraduationCap,
   Shield,
-  Sparkles,
 } from "lucide-react";
 
 import { createClient } from "@/lib/supabase/server";
@@ -178,7 +176,7 @@ export default async function DashboardPage() {
               <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
                 <div className="flex items-center gap-3">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
-                    <CalendarDays className="h-5 w-5" />
+                    <BookOpen className="h-5 w-5" />
                   </div>
                   <p className="text-sm font-medium text-slate-500">
                     Agendamentos recentes
@@ -212,21 +210,21 @@ export default async function DashboardPage() {
               <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
                 <div className="flex items-center gap-3">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-100 text-violet-700">
-                    <Sparkles className="h-5 w-5" />
+                    <GraduationCap className="h-5 w-5" />
                   </div>
                   <p className="text-sm font-medium text-slate-500">
-                    Próximo passo
+                    Acompanhamento
                   </p>
                 </div>
                 <p className="mt-4 text-lg font-semibold text-slate-900">
                   {bookings && bookings.length > 0
-                    ? "Acompanhar seus pedidos"
-                    : "Agendar sua primeira aula"}
+                    ? "Veja seus pedidos recentes"
+                    : "Seu histórico aparecerá aqui"}
                 </p>
                 <p className="mt-2 text-sm text-slate-500">
                   {bookings && bookings.length > 0
-                    ? "Veja o status dos seus pedidos recentes."
-                    : "Comece marcando uma aula online ou presencial."}
+                    ? "Consulte status e detalhes dos registros feitos na plataforma."
+                    : "Quando houver solicitações, elas ficarão organizadas neste painel."}
                 </p>
               </div>
 
@@ -259,26 +257,7 @@ export default async function DashboardPage() {
 
       <section className="px-4 py-10">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            <Link
-              href="/booking"
-              className="group rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-600">
-                Ação rápida
-              </p>
-              <h2 className="mt-4 text-xl font-bold tracking-tight text-slate-900">
-                Agendar aula
-              </h2>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Solicite uma nova aula online ou presencial em Goiânia.
-              </p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition group-hover:translate-x-1">
-                Abrir agendamento
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
-
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             <Link
               href="/materials"
               className="group rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
@@ -299,25 +278,18 @@ export default async function DashboardPage() {
               </span>
             </Link>
 
-            <Link
-              href="/booking"
-              className="group rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
-            >
+            <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-700">
                 Acompanhamento
               </p>
               <h2 className="mt-4 text-xl font-bold tracking-tight text-slate-900">
-                Novo agendamento
+                Seus agendamentos
               </h2>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Faça uma nova solicitação e acompanhe os registros recentes logo
-                abaixo nesta página.
+                Consulte abaixo os registros recentes e acompanhe o status de
+                cada solicitação.
               </p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition group-hover:translate-x-1">
-                Ir para agendamento
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
+            </div>
 
             {authData.role === "admin" ? (
               <Link
@@ -349,7 +321,7 @@ export default async function DashboardPage() {
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
                   Mantenha seus estudos em dia usando os materiais publicados e
-                  os próximos agendamentos.
+                  o acompanhamento dos seus agendamentos.
                 </p>
               </div>
             )}
@@ -374,13 +346,6 @@ export default async function DashboardPage() {
                     de acompanhar.
                   </p>
                 </div>
-
-                <Link
-                  href="/booking"
-                  className="inline-flex h-fit items-center justify-center rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
-                >
-                  Novo agendamento
-                </Link>
               </div>
 
               {!bookings || bookings.length === 0 ? (
@@ -391,12 +356,6 @@ export default async function DashboardPage() {
                   <p className="mt-2 text-sm text-slate-500">
                     Quando fizer um pedido, ele aparecerá aqui com o status.
                   </p>
-                  <Link
-                    href="/booking"
-                    className="mt-5 inline-flex rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
-                  >
-                    Agendar agora
-                  </Link>
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -561,15 +520,8 @@ export default async function DashboardPage() {
 
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
                 <Link
-                  href="/booking"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
-                >
-                  Agendar aula
-                </Link>
-
-                <Link
                   href="/materials"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/15"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
                 >
                   <BookOpen className="h-4 w-4" />
                   Abrir materiais

@@ -2,7 +2,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   BookOpen,
-  CalendarDays,
   GraduationCap,
   Lock,
   ShieldCheck,
@@ -16,13 +15,6 @@ const accessCards = [
       "Acesse conteúdos publicados para apoiar seus estudos com mais organização e clareza.",
     href: "/materials",
     icon: BookOpen,
-  },
-  {
-    title: "Agendamento",
-    description:
-      "Solicite novas aulas de forma simples e continue o atendimento pelo WhatsApp.",
-    href: "/booking",
-    icon: CalendarDays,
   },
   {
     title: "Dashboard",
@@ -130,7 +122,9 @@ export default function LoginPage() {
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-100 text-violet-700">
                     <GraduationCap className="h-5 w-5" />
                   </div>
-                  <p className="text-sm font-medium text-slate-500">Área do aluno</p>
+                  <p className="text-sm font-medium text-slate-500">
+                    Área do aluno
+                  </p>
                 </div>
                 <p className="mt-4 text-lg font-semibold text-slate-900">
                   Experiência centralizada
@@ -145,7 +139,9 @@ export default function LoginPage() {
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
                     <ShieldCheck className="h-5 w-5" />
                   </div>
-                  <p className="text-sm font-medium text-slate-500">Continuidade</p>
+                  <p className="text-sm font-medium text-slate-500">
+                    Continuidade
+                  </p>
                 </div>
                 <p className="mt-4 text-lg font-semibold text-slate-900">
                   Fluxo consistente
@@ -182,7 +178,7 @@ export default function LoginPage() {
                   "Login com visual consistente ao restante do projeto",
                   "Acesso à biblioteca de materiais",
                   "Integração com dashboard e área administrativa",
-                  "Fluxo mais direto para estudo e agendamento",
+                  "Fluxo mais direto para estudo e navegação na plataforma",
                 ].map((item) => (
                   <div
                     key={item}
@@ -197,13 +193,6 @@ export default function LoginPage() {
               </div>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/booking"
-                  className="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800"
-                >
-                  Solicitar aula
-                </Link>
-
                 <Link
                   href="/"
                   className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"

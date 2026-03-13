@@ -1,16 +1,13 @@
-import Link from "next/link";
 import {
   MessageCircle,
   Phone,
   Instagram,
   MapPin,
   Clock3,
-  ArrowRight,
   CheckCircle2,
 } from "lucide-react";
 
 import Container from "@/components/Container";
-import Button from "@/components/Button";
 
 export default function ContactPage() {
   const whatsappNumber = "5562982273735";
@@ -63,8 +60,8 @@ export default function ContactPage() {
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
                 O atendimento é feito de forma prática e rápida pelo WhatsApp,
-                facilitando o primeiro contato, o alinhamento das necessidades
-                do aluno e o encaminhamento para o agendamento.
+                facilitando o primeiro contato e o alinhamento das necessidades
+                do aluno.
               </p>
 
               <div className="mt-8 space-y-4 text-slate-600">
@@ -100,10 +97,6 @@ export default function ContactPage() {
                   Chamar no WhatsApp
                   <MessageCircle className="h-4 w-4" />
                 </a>
-
-                <Button href="/booking" variant="secondary">
-                  Ir para agendamento
-                </Button>
               </div>
             </div>
 
@@ -174,7 +167,7 @@ export default function ContactPage() {
                       Atendimento
                     </p>
                     <p className="mt-1 text-lg font-semibold text-white">
-                      Contato rápido para alinhamento e agendamento
+                      Contato rápido para alinhamento inicial
                     </p>
                   </div>
                 </div>
@@ -238,14 +231,14 @@ export default function ContactPage() {
 
             <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
-                <ArrowRight className="h-6 w-6" />
+                <MessageCircle className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900">
-                3. Siga para o agendamento
+                3. Continue o atendimento
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-600">
-                Depois do contato inicial, o próximo passo é organizar o
-                agendamento da aula.
+                A partir do contato inicial, o próximo passo é organizar a melhor
+                forma de seguir com o aluno.
               </p>
             </div>
           </div>
@@ -266,9 +259,9 @@ export default function ContactPage() {
                 </h2>
 
                 <p className="mt-4 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg">
-                  Entre em contato pelo WhatsApp ou siga direto para a página de
-                  agendamento para continuar a experiência de forma prática e
-                  organizada.
+                  Entre em contato pelo WhatsApp para tirar dúvidas, explicar a
+                  necessidade do aluno e continuar o atendimento de forma prática
+                  e organizada.
                 </p>
               </div>
 
@@ -282,14 +275,6 @@ export default function ContactPage() {
                   Falar no WhatsApp
                   <MessageCircle className="h-4 w-4" />
                 </a>
-
-                <Link
-                  href="/booking"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/15"
-                >
-                  Ir para agendamento
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
             </div>
           </div>

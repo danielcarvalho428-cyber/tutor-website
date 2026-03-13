@@ -7,7 +7,6 @@ import {
   MapPin,
   MessageCircle,
   CheckCircle2,
-  ArrowRight,
 } from "lucide-react";
 
 import Hero from "@/components/Hero";
@@ -98,9 +97,6 @@ export default function HomePage() {
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button href="/about">Conheça o professor</Button>
-                <Button href="/booking" variant="secondary">
-                  Agendar aula
-                </Button>
               </div>
             </div>
 
@@ -200,24 +196,16 @@ export default function HomePage() {
                 </h2>
 
                 <p className="mt-4 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg">
-                  Conheça melhor a proposta, entre em contato ou siga direto para
-                  o agendamento. Tudo foi pensado para tornar o processo simples,
-                  claro e profissional.
+                  Conheça melhor a proposta e entre em contato para entender qual
+                  formato faz mais sentido para a rotina e as necessidades do
+                  aluno.
                 </p>
               </div>
 
               <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
                 <Link
-                  href="/booking"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
-                >
-                  Agendar aula
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-
-                <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/15"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
                 >
                   Falar pelo WhatsApp
                   <MessageCircle className="h-4 w-4" />
@@ -225,7 +213,7 @@ export default function HomePage() {
 
                 <Link
                   href="/about"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-transparent px-6 py-4 text-sm font-semibold text-slate-200 transition hover:bg-white/5"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/15"
                 >
                   Conhecer mais
                   <GraduationCap className="h-4 w-4" />
