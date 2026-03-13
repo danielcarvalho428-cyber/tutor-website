@@ -456,52 +456,6 @@ export default async function MaterialsPage({
           </div>
         </div>
       </section>
-
-      <section className="px-4 py-10">
-        <div className="mx-auto max-w-7xl">
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-10">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
-              <BookOpen className="h-6 w-6" />
-            </div>
-
-            <h3 className="mt-5 text-2xl font-bold tracking-tight text-slate-900">
-              Próximos upgrades
-            </h3>
-
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
-              O próximo passo natural é expandir ainda mais essa biblioteca com
-              uploads reais e segmentação por aluno.
-            </p>
-
-            <div className="mt-8 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-              {[
-                "Uploads reais de PDF e vídeo",
-                "Filtros ainda mais refinados",
-                "Materiais separados por aluno",
-                "Histórico de conteúdos liberados",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center justify-between rounded-2xl border border-slate-200 px-5 py-4 text-sm font-semibold text-slate-800"
-                >
-                  <span>{item}</span>
-                  <Lock className="h-4 w-4 text-amber-600" />
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8">
-              <Link
-                href="/booking"
-                className="inline-flex items-center gap-2 rounded-2xl bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800"
-              >
-                Ir para agendamento
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
