@@ -1,75 +1,95 @@
+// app/api/booking/route.ts
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
-const ADMIN_EMAIL = "vendasdaniel25@gmail.com";
-const allowedStatuses = ["novo", "em contato", "agendado", "concluído"] as const;
-
-type AllowedStatus = (typeof allowedStatuses)[number];
-
-type RouteContext = {
-  params: Promise<{
-    id: string;
-  }>;
-};
-
-export async function PATCH(request: Request, context: RouteContext) {
+export async function POST(request: Request) {
   try {
+    const body = await request.json();
+
+    const name = typeof body?.name === "string" ? body.name.trim() : "";
+    const phone = typeof body?.phone === "string" ? body.phone.trim() : "";
+    const email = typeof body?.email === "string" ? body.email.trim() : "";
+    const subject = typeof body?.subject === "string" ? body.subject.trim() : "";
+    const level = typeof body?.level === "string" ? body.level.trim() : "";
+    const format = typeof body?.format === "string" ? body.format.trim() : "";
+    const preferredDay =
+      typeof body?.preferredDay === "string" ? body.preferredDay.trim() : "";
+    const preferredTime =
+      typeof body?.preferredTime === "string" ? body.preferredTime.trim() : "";
+    const message =
+      typeof body?.message === "string" ? body.message.trim() : "";
+
+    if (!name || !phone || !email || !subject || !level || !format) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Preencha os campos obrigatórios.",
+        },
+        { status: 400 }
+      );
+    }
+
     const supabase = await createClient();
 
     const {
       data: { user },
     } = await supabase.auth.getUser();
 
-    if (!user) {
-      return NextResponse.json(
-        { success: false, error: "Não autenticado." },
-        { status: 401 }
-      );
-    }
-
-    if (user.email !== ADMIN_EMAIL) {
-      return NextResponse.json(
-        { success: false, error: "Acesso não autorizado." },
-        { status: 403 }
-      );
-    }
-
-    const { id } = await context.params;
-    const bookingId = Number(id);
-
-    if (!Number.isFinite(bookingId)) {
-      return NextResponse.json(
-        { success: false, error: "ID inválido." },
-        { status: 400 }
-      );
-    }
-
-    const body = (await request.json()) as { status?: string };
-    const nextStatus = body.status?.trim() as AllowedStatus | undefined;
-
-    if (!nextStatus || !allowedStatuses.includes(nextStatus)) {
-      return NextResponse.json(
-        { success: false, error: "Status inválido." },
-        { status: 400 }
-      );
-    }
-
-    const { error } = await supabase
-      .from("bookings")
-      .update({ status: nextStatus })
-      .eq("id", bookingId);
+    const { error } = await supabase.from("bookings").insert({
+      user_id: user?.id ?? null,
+      name,
+      phone,
+      email,
+      subject,
+      level,
+      format,
+      preferred_day: preferredDay || null,
+      preferred_time: preferredTime || null,
+      message: message || null,
+      status: "pendente",
+    });
 
     if (error) {
       return NextResponse.json(
-        { success: false, error: error.message },
+        {
+          success: false,
+          error: error.message || "Não foi possível salvar o agendamento.",
+        },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({ success: true });
-  } catch {
+    const whatsappText =
+      `Olá, Professor Kaue Ribeiro!\n\n` +
+      `Nova solicitação de aula:\n` +
+      `Nome: ${name}\n` +
+      `WhatsApp: ${phone}\n` +
+      `E-mail: ${email}\n` +
+      `Disciplina: ${subject}\n` +
+      `Nível: ${level}\n` +
+      `Formato: ${format}\n` +
+      `Dia preferido: ${preferredDay || "Não informado"}\n` +
+      `Horário preferido: ${preferredTime || "Não informado"}\n` +
+      `Observações: ${message || "Nenhuma"}`;
+
+    const whatsappUrl = `https://wa.me/5562982273735?text=${encodeURIComponent(
+      whatsappText
+    )}`;
+
+    return NextResponse.json({
+      success: true,
+      message: "Solicitação enviada com sucesso.",
+      whatsappUrl,
+    });
+  } catch (error) {
     return NextResponse.json(
-      { success: false, error: "Erro interno ao atualizar status." },
+      {
+        success: false,
+        error:
+          error instanceof Error
+            ? error.message
+            : "Ocorreu um erro ao processar a solicitação.",
+      },
       { status: 500 }
     );
   }
